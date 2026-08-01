@@ -263,7 +263,34 @@
 
 ### Outros campos
 
-- **`<textarea>`**: `rows`, `cols`, `placeholder`, `maxlength`, `readonly`, `disabled`, `required`
-- **`<select>` / `<option>`**: `required`, `multiple`, `size`
-- **`<optgroup label="...">`**: agrupa opções relacionadas dentro do `<select>`
-- **`<fieldset>` + `<legend>`**: agrupa campos relacionados e dá um título ao grupo (melhora acessibilidade)
+**`<textarea>`** — campo de texto com várias linhas
+
+| Atributo | Função |
+|---|---|
+| `rows` | número de linhas visíveis (altura) |
+| `cols` | número de colunas visíveis (largura) |
+| `placeholder` | texto de dica que some ao digitar |
+| `maxlength` | quantidade máxima de caracteres |
+| `readonly` | campo visível mas não editável |
+| `disabled` | desabilita o campo (não é enviado no form) |
+| `required` | obrigatório preencher antes de enviar |
+
+**`<select>` / `<option>`** — lista suspensa de opções
+
+| Atributo | Função |
+|---|---|
+| `required` | obriga escolher uma opção |
+| `multiple` | permite selecionar mais de uma opção |
+| `size` | quantas opções ficam visíveis sem rolar (usado com `multiple`) |
+
+**`<optgroup label="...">`** — agrupa opções relacionadas dentro do `<select>`, criando subtítulos na lista.
+```html
+<select>
+  <optgroup label="Sudeste">
+    <option value="sp">São Paulo</option>
+    <option value="rj">Rio de Janeiro</option>
+  </optgroup>
+</select>
+```
+
+**`<fieldset>` + `<legend>`** — `<fieldset>` agrupa campos relacionados dentro de uma borda visual; `<legend>` define o título desse grupo. Ajuda na organização e melhora a acessibilidade (leitores de tela).
