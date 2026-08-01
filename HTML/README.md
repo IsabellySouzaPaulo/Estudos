@@ -26,6 +26,17 @@
 
 ---
 
+## 🧩 Semântica
+
+| Tag | Descrição |
+|-----|-----------|
+| `<section>` | Seção genérica de conteúdo |
+| `<article>` | Conteúdo relevante/independente da página (ex: post, notícia) |
+| `<footer>` | Rodapé da página ou de uma parte dela |
+| `<h1>` a `<h6>` | Hierarquia de títulos — só pode haver **um `<h1>` por página** |
+
+---
+
 ## 🏷️ Tags Principais
 
 | Tag | Descrição |
@@ -44,7 +55,7 @@
 <!-- Ícone do site (vai no <head>) -->
 <link rel="shortcut icon" href="img/icone.png" type="image/x-icon">
 
-<!-- Imagem (alt = descrição da imagem) -->
+<!-- Imagem: src (obrigatório) = caminho | alt (recomendado) = descrição -->
 <img src="img/foto.png" alt="Descrição da foto">
 
 <!-- Botão (class chama o estilo no CSS) -->
@@ -56,14 +67,21 @@
 <!-- Parágrafo -->
 <p>Texto do parágrafo</p>
 
-<!-- Link externo (abre em nova aba, sem sair do site) -->
+<!-- Link externo: target="_blank" abre em nova guia -->
 <a href="https://google.com" target="_blank" rel="external">
   Clique aqui para ir ao Google
 </a>
 
-<!-- Link interno (vai pra outra página ao clicar) -->
+<!-- Link interno -->
 <a href="outra-pagina.html" rel="next">Ir para outra página</a>
+
+<!-- Link de e-mail e telefone -->
+<a href="mailto:contato@email.com">Enviar e-mail</a>
+<a href="tel:+5511999999999">Ligar</a>
 ```
+
+> 🖼 **Favicon:** ícone que aparece na guia do navegador (.ico).
+> [Baixar ícones](https://iconarchive.com/) · [Converter PNG em ícone](https://favicon.io/)
 
 ---
 
