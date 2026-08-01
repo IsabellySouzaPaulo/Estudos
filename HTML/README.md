@@ -72,15 +72,11 @@
 ```html
 <b>Negrito</b>
 <strong>Negrito semântico</strong>
-
 <i>Itálico</i>
 <em>Itálico semântico</em>
-
 <u>Sublinhado</u>
-
 <sub>Subscrito</sub>   <!-- ex: H₂O -->
 <sup>Sobrescrito</sup> <!-- ex: x² -->
-
 <big>Texto maior que o padrão</big>
 <small>Texto menor que o padrão</small>
 ```
@@ -91,81 +87,165 @@
 
 ## 📋 Listas
 
+### Ordenada (`<ol>`)
 ```html
-<!-- Lista ordenada (1, 2, 3...) -->
-<ol>
-  <li>Primeiro elemento</li>
-  <li>Segundo elemento</li>
-  <li>Terceiro elemento</li>
+<ol type="A" reversed>
+  <li>Item A</li>
+  <li>Item B</li>
+  <li>Item C</li>
 </ol>
+```
+- `type`: `1` (padrão), `A`/`a` (letras), `I`/`i` (romanos)
+- `reversed`: inverte a ordem da contagem
 
-<!-- Lista não ordenada (bullets •) -->
+### Não ordenada (`<ul>`)
+```html
 <ul>
-  <li>Primeiro elemento</li>
-  <li>Segundo elemento</li>
-  <li>Terceiro elemento</li>
+  <li>Item 1</li>
+  <li>Item 2</li>
 </ul>
 ```
+- `type`: `disc` (padrão), `circle`, `square`
+
+### Lista de descrição
+```html
+<dl>
+  <dt>Título 1</dt>
+  <dd>Descrição do título 1.</dd>
+</dl>
+```
+
+### Lista aninhada
+```html
+<ul>
+  <li>Item 1</li>
+  <li>Item 2
+    <ul>
+      <li>Item 2.1</li>
+      <li>Item 2.2</li>
+    </ul>
+  </li>
+</ul>
+```
+
+---
+
+## 📊 Tabelas
+
+```html
+<table border="1">
+  <caption>Horário Semanal</caption>
+  <thead>
+    <tr>
+      <th>Dia</th>
+      <th>Matéria</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td colspan="2">Horários sujeitos a alterações</td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+      <td>Segunda</td>
+      <td>Matemática</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+- `<tr>`: linha | `<th>`: cabeçalho (negrito/centralizado) | `<td>`: célula de dado
+- `<thead>` / `<tbody>` / `<tfoot>`: agrupam cabeçalho, corpo e rodapé (o `<tfoot>` fica antes do `<tbody>` no código, mas renderiza embaixo)
+- `<caption>`: legenda da tabela
+
+### Atributos (usar de preferência via CSS)
+
+| Atributo | Função |
+|---|---|
+| `cellpadding` | espaço interno da célula |
+| `cellspacing` | espaço entre células |
+| `colspan` | célula ocupa várias colunas |
+| `rowspan` | célula ocupa várias linhas |
+| `align` / `valign` | alinhamento horizontal/vertical |
+| `bgcolor` | cor de fundo |
 
 ---
 
 ## 📝 Formulários
 
 ```html
-<form action="cadastro.php" method="post">
+<form action="cadastro.php" method="post" enctype="multipart/form-data">
 
-  <!-- Texto -->
-  <label for="nome">Nome:</label>
-  <input type="text" id="nome" name="nome" required><br><br>
+  <fieldset>
+    <legend>Dados Pessoais</legend>
 
-  <!-- CPF -->
-  <label for="cpf">CPF:</label>
-  <input type="text" id="cpf" name="cpf" required><br><br>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required><br>
 
-  <!-- Senha -->
-  <label for="senha">Senha:</label>
-  <input type="password" id="senha" name="senha" required><br><br>
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" name="senha" required><br>
 
-  <!-- Checkbox (múltiplas escolhas) -->
-  <p>Interesses:</p>
-  <input type="checkbox" id="tec" name="interesses[]" value="tecnologia">
-  <label for="tec">Tecnologia</label>
+    <label for="foto">Foto:</label>
+    <input type="file" id="foto" name="foto" accept="image/*"><br>
 
-  <input type="checkbox" id="esporte" name="interesses[]" value="esportes">
-  <label for="esporte">Esportes</label><br><br>
+    <p>Interesses:</p>
+    <input type="checkbox" id="tec" name="interesses[]" value="tecnologia">
+    <label for="tec">Tecnologia</label><br>
 
-  <!-- Radio (apenas uma escolha) -->
-  <p>Gênero:</p>
-  <input type="radio" id="masc" name="genero" value="masculino">
-  <label for="masc">Masculino</label>
+    <p>Gênero:</p>
+    <input type="radio" id="masc" name="genero" value="masculino" checked>
+    <label for="masc">Masculino</label><br>
 
-  <input type="radio" id="fem" name="genero" value="feminino">
-  <label for="fem">Feminino</label><br><br>
+    <label for="estado">Estado:</label>
+    <select id="estado" name="estado">
+      <optgroup label="Sudeste">
+        <option value="sp">São Paulo</option>
+        <option value="rj">Rio de Janeiro</option>
+      </optgroup>
+    </select><br>
 
-  <!-- Select (lista suspensa) -->
-  <label for="estado">Estado:</label>
-  <select id="estado" name="estado">
-    <option value="sp">São Paulo</option>
-    <option value="rj">Rio de Janeiro</option>
-    <option value="mg">Minas Gerais</option>
-  </select><br><br>
+    <label for="bio">Bio:</label>
+    <textarea id="bio" name="bio" rows="4" cols="30" placeholder="Fale sobre você"></textarea>
+
+  </fieldset>
 
   <button type="submit">Cadastrar</button>
-
 </form>
 ```
 
-### Tipos de `<input>` mais usados
+### `<form>` — atributos principais
+
+| Atributo | Função |
+|---|---|
+| `action` | URL/servidor que recebe os dados |
+| `method="get"` | dados visíveis na URL (padrão) |
+| `method="post"` | dados no corpo da requisição, não aparecem na URL |
+| `enctype="multipart/form-data"` | obrigatório quando o form tem upload de arquivo |
+| `autocomplete="on/off"` | ativa/desativa preenchimento automático |
+| `novalidate` | desativa a validação automática do HTML5 |
+
+### Tipos de `<input>`
 
 | Tipo | Uso |
 |------|-----|
-| `type="text"` | Texto livre |
-| `type="password"` | Senha (oculta o texto) |
-| `type="email"` | E-mail (valida formato) |
-| `type="number"` | Apenas números |
-| `type="date"` | Seletor de data |
-| `type="checkbox"` | Múltiplas escolhas |
-| `type="radio"` | Uma escolha |
-| `type="file"` | Upload de arquivo |
-| `type="hidden"` | Campo invisível |
-| `type="submit"` | Botão de envio |
+| `text` | Texto livre |
+| `password` | Senha (oculta o texto) |
+| `email` / `url` | Valida formato de e-mail/URL |
+| `number` | Apenas números |
+| `date` / `time` / `datetime-local` | Data e/ou hora |
+| `range` | Controle deslizante |
+| `color` | Seletor de cor |
+| `checkbox` | Múltiplas escolhas |
+| `radio` | Uma escolha entre várias (mesmo `name`) |
+| `file` | Upload de arquivo (`accept`, `multiple`) |
+| `hidden` | Campo invisível ao usuário |
+| `submit` | Envia o formulário |
+| `reset` | Limpa os campos para o valor inicial |
+
+### Outros campos
+
+- **`<textarea>`**: `rows`, `cols`, `placeholder`, `maxlength`, `readonly`, `disabled`, `required`
+- **`<select>` / `<option>`**: `required`, `multiple`, `size`
+- **`<optgroup label="...">`**: agrupa opções relacionadas dentro do `<select>`
+- **`<fieldset>` + `<legend>`**: agrupa campos relacionados e dá um título ao grupo (melhora acessibilidade)
