@@ -1,4 +1,7 @@
 # 🎨 Web Design — Resumo do Curso
+
+Adobe Colors: https://color.adobe.com/create/color-wheel
+
 ---
 
 ## 📌 1. Conceitos de Web Design
