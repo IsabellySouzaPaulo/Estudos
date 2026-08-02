@@ -1,8 +1,4 @@
 # 🎨 Web Design — Resumo do Curso
-
-> Anotações-resumo do curso **WD2026B** (Aprenda Mais / MEC), baseado na apostila de Fernando Schütz (UTFPR/Rede e-Tec Brasil).
-> Resumo completo com imagens em [`docs/resumo-ilustrado.md`](docs/resumo-ilustrado.md).
-
 ---
 
 ## 📌 1. Conceitos de Web Design
