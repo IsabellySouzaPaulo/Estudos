@@ -1,7 +1,5 @@
 # 🧾 Anotações de ABAP
 
-> ⚠️ Códigos de empresa, usuários e nomes específicos do sistema real foram trocados por exemplos genéricos.
-
 **F8** = executa o programa.
 
 ---
